@@ -132,7 +132,7 @@ void draw() {
     grid(100, 100, 580, 100, 100, 100, 100, 580); // funktion for making the grid
     up = false; // makes lasers face sideways
     for (laser b : LaserList) { // for loop goes thru the first row of lasers
-     // b.drawLaser(posx, posy, chance, laser0Right, laser1Right, laser2Right, up, laserBeam, chargeTime); // draws the lasers to the screen
+      b.drawLaser(posx, posy, chance, laser0Right, laser1Right, laser2Right, up, laserBeam, chargeTime); // draws the lasers to the screen
       posy = posy + 60; // plus 60 after drawing each laser
     }
 
@@ -140,7 +140,7 @@ void draw() {
     posy = 620; // pos y for the first bottom laser
     up = true; // lasers faces up true
     for (laser c : LaserList2) {
-    //  c.drawLaser(posx, posy, chance, laser0Up, laser1Up, laser2Up, up, laserBeamUp, chargeTime); // tegner laserne
+      c.drawLaser(posx, posy, chance, laser0Up, laser1Up, laser2Up, up, laserBeamUp, chargeTime); // tegner laserne
       posx = posx + 60;
     }
     a.drawPlayer(player); // draws player

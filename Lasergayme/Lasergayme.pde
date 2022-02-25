@@ -60,7 +60,7 @@ PImage laser1Up;
 PImage laser2Left;
 PImage laser2Right;
 PImage laser2Up;
-  
+
 PImage laserBeamUp;
 PImage laserBeam;
 
@@ -132,7 +132,7 @@ void draw() {
     grid(100, 100, 580, 100, 100, 100, 100, 580); // funktion for making the grid
     up = false; // makes lasers face sideways
     for (laser b : LaserList) { // for loop goes thru the first row of lasers
-      b.drawLaser(posx, posy, chance, laser0Right, laser1Right, laser2Right, up, laserBeam, chargeTime); // draws the lasers to the screen
+     // b.drawLaser(posx, posy, chance, laser0Right, laser1Right, laser2Right, up, laserBeam, chargeTime); // draws the lasers to the screen
       posy = posy + 60; // plus 60 after drawing each laser
     }
 
@@ -140,7 +140,7 @@ void draw() {
     posy = 620; // pos y for the first bottom laser
     up = true; // lasers faces up true
     for (laser c : LaserList2) {
-      c.drawLaser(posx, posy, chance, laser0Up, laser1Up, laser2Up, up, laserBeamUp, chargeTime); // tegner laserne
+    //  c.drawLaser(posx, posy, chance, laser0Up, laser1Up, laser2Up, up, laserBeamUp, chargeTime); // tegner laserne
       posx = posx + 60;
     }
     a.drawPlayer(player); // draws player
@@ -152,7 +152,7 @@ void draw() {
         int randomX = int(random(0, 8)); // gets a random number from 0 to 8
         int randomY = int(random(0, 8));
         println((a.x1 -130) / 60);
-        println((a.y1 -130 / 60));
+        println((a.y1 -130) / 60);
         if ((a.x1 -130) / 60 == randomX) { // checks if x cordinate of player and box is the same
           if (randomX == 7) { // checks if the box should be moved left
             randomX--; // moves the box left

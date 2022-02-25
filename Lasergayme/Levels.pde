@@ -7,7 +7,7 @@ void levels() {
   level3 = new button(340, 260, 50, 50, "3");
   level4 = new button(400, 260, 50, 50, "4");
   level5 = new button(460, 260, 50, 50, "5");
-  
+
   back.render();
   back.update();
 
@@ -21,8 +21,8 @@ void levels() {
   level4.update();
   level5.render();
   level5.update();
-  
-  if(back.isClicked() == true && clickable == true){
+
+  if (back.isClicked() == true && clickable == true) {
     mainMenu = true;
     levels = false;
     clickable = false;
@@ -65,7 +65,7 @@ void checkLevel() {
     break;
 
   case 2:
-  obstacle = false;
+    obstacle = false;
     levelTime = 45000;
     chargeTime = 1750;
     chance = 1500;

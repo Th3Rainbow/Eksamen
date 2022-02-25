@@ -14,31 +14,31 @@ class laser { // laser classe
     image(L0, posx, posy);
     if (random == 50) {
       shoot = true;
-     // println("charge");
+      // println("charge");
       laserShoot(posx, posy, L1, L2, laser, up, chargeTime);
     }
   }
 
-  void laserShoot(float x, float y, PImage L1, PImage L2, PImage laser, boolean up, int chargeTimer){
+  void laserShoot(float x, float y, PImage L1, PImage L2, PImage laser, boolean up, int chargeTimer) {
     int currentTime1 = millis() - startTime1;
     if (currentTime1 < chargeTimer) {
-     // fill(255, 0, 0);
+      // fill(255, 0, 0);
       image(L1, x, y);
     } else if (currentTime1 >= chargeTimer && currentTime1 <= chargeTimer+1000) {
       //fill(255, 0, 0);
-      if (up == true){
-        if (a.x1 == x){
-         dead = true; 
+      if (up == true) {
+        if (a.x1 == x) {
+          dead = true;
         }
         image(laser, x, 350);
-      }else{
-      image(laser, 330, y);
-      if (a.y1 == y){
-        dead = true;
-      }
+      } else {
+        image(laser, 330, y);
+        if (a.y1 == y) {
+          dead = true;
+        }
       }
       image(L2, x, y);
-    } else if (currentTime1 > 3000){
+    } else if (currentTime1 > 3000) {
       shoot = false;
       startTime1 = millis();
     }

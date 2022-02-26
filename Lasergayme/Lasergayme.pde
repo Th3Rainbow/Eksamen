@@ -1,12 +1,6 @@
 button playButton; // buttons
 button levelsButton;
 
-button level1;
-button level2;
-button level3;
-button level4;
-button level5;
-
 button back;
 
 button retry;
@@ -21,7 +15,7 @@ int pY1 = 130; // Player y1
 int chance = 2000; // chance for each laser to shoot each frame
 
 int currentLvl = 1; // current level
-int highestLvl = 0; // highest lvl reached
+int highestLvl = 5; // highest lvl reached
 int chargeTime = 2000; // time for laser to charge
 int selectedLvl = 1; // selected lvl
 
@@ -141,7 +135,6 @@ void draw() {
     return;
   } else {
     checkLevel(); // function that checks what lvl is chosen
-    int currentTimer = millis() - obstacleTime;
     if (currentTime >= levelTime) { // Checks if level is over
       int currentScore = currentTime;
       win( currentTime, currentScore = currentTime); // draws win screen
@@ -170,6 +163,7 @@ void draw() {
     // text(mouseX + " " + mouseY, mouseX, mouseY);
     if (obstacle == true) { // if above level 3
       rectMode(CENTER);
+      int currentTimer = millis() - obstacleTime;
       if (currentTimer >= 10000) { // if the level has been going on for 10 seconds
         obstacleTime = millis(); // reset timer
         int randomX = int(random(0, 8)); // gets a random number from 0 to 8

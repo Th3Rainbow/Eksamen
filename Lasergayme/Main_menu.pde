@@ -1,4 +1,3 @@
-
 void mainMenu() {
 
   playButton = new button(340, 390, 80, 50, "Play");
@@ -17,6 +16,7 @@ void mainMenu() {
     ObstacleList.clear();
     clickable = false;
     mainMenu = false;
+    obstacleTime = millis();
     startTime = millis();
     return;
   }

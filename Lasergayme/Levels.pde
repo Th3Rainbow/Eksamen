@@ -1,21 +1,17 @@
 void levels() {
   
   back = new button(340, 320, 90, 50, "Back");
+  playButton = new button(340, 390, 80, 50, "Play");
 
   ArrayList <button> levelList = new ArrayList <button> ();
   
-  levelList.add(new button(220, 260, 50, 50, "1"));
-  levelList.add(new button(280, 260, 50, 50, "2"));
-  levelList.add(new button(340, 260, 50, 50, "3"));
-  levelList.add(new button(400, 260, 50, 50, "4"));
-  levelList.add(new button(460, 260, 50, 50, "5"));
+  int y = 1;
+  for(int i = 220; i < 500; i = i +60){
+    String text = str(y);
+    levelList.add(new button(i, 260, 50, 50, text));
+    y++;
+  }
 
-  /*level1 = new button(220, 260, 50, 50, "1");
-  level2 = new button(280, 260, 50, 50, "2");
-  level3 = new button(340, 260, 50, 50, "3");
-  level4 = new button(400, 260, 50, 50, "4");
-  level5 = new button(460, 260, 50, 50, "5");*/
-  
   for(button b : levelList){
    b.render();
    b.update();
@@ -23,23 +19,23 @@ void levels() {
 
   back.render();
   back.update();
-/*
-  level1.render();
-  level1.update();
-  level2.render();
-  level2.update();
-  level3.render();
-  level3.update();
-  level4.render();
-  level4.update();
-  level5.render();
-  level5.update();
-  */
+  
+  playButton.render();
+  playButton.update();
 
   if (back.isClicked() == true && clickable == true) {
     mainMenu = true;
     levels = false;
     clickable = false;
+    return;
+  }
+  if (playButton.isClicked() == true && clickable == true) {
+    ObstacleList.clear();
+    clickable = false;
+    mainMenu = false;
+    levels = false;
+    obstacleTime = millis();
+    startTime = millis();
     return;
   }
   int i = 1;
@@ -50,28 +46,6 @@ void levels() {
     }
     i++;
   }
-/*
-  if (level1.isClicked() == true && highestLvl >= 0 && clickable == true) {
-    selectedLvl = 1;
-    clickable = false;
-  }
-  if (level2.isClicked() == true && highestLvl >= 1 && clickable == true) {
-    selectedLvl = 2;
-    clickable = false;
-  }
-  if (level3.isClicked() == true && highestLvl >= 2 && clickable == true) {
-    selectedLvl = 3;
-    clickable = false;
-  }
-  if (level4.isClicked() == true && highestLvl >= 3 && clickable == true) {
-    selectedLvl = 4;
-    clickable = false;
-  }
-  if (level5.isClicked() == true && highestLvl >= 4 && clickable == true) {
-    selectedLvl = 5;
-    clickable = false;
-  }
-  */
 
   text(selectedLvl, 340, 210);
   text("selectedLevel", 340, 150);
@@ -98,19 +72,19 @@ void checkLevel() {
   case 3:
     levelTime = 70000;
     chargeTime = 1500;
-    chance = 1000;
+    chance = 1200;
     obstacle = true;
     break;
 
   case 4:
     levelTime = 95000;
     chargeTime = 1250;
-    chance = 800;
+    chance = 1000;
     obstacle = true;
     break;
 
   case 5:
-    chance = 600;
+    chance = 800;
     chargeTime = 1000;
     levelTime = 120000;
     obstacle = true;

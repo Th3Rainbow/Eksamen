@@ -1,4 +1,3 @@
-
 void win(int time, int score) {
   if (takeScore == true) {
     score = time;

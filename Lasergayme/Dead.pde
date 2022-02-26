@@ -1,4 +1,3 @@
-
 void dead(int time, int score) { // funktion til at vise dead skærmen
   if (takeScore == true) {
     score = time;

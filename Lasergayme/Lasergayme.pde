@@ -21,7 +21,7 @@ int pY1 = 130; // Player y1
 int chance = 2000; // chance for each laser to shoot each frame
 
 int currentLvl = 1; // current level
-int highestLvl =5; // highest lvl reached
+int highestLvl = 0; // highest lvl reached
 int chargeTime = 2000; // time for laser to charge
 int selectedLvl = 1; // selected lvl
 
@@ -51,15 +51,23 @@ boolean levels = false; // levels option
 // different images
 PImage player;
 
-PImage laser0Left;
 PImage laser0Right;
 PImage laser0Up;
-PImage laser1Left;
+
 PImage laser1Right;
 PImage laser1Up;
-PImage laser2Left;
+
 PImage laser2Right;
 PImage laser2Up;
+
+PImage laser3Right;
+PImage laser3Up;
+
+PImage laser4Right;
+PImage laser4Up;
+
+PImage laser5Right;
+PImage laser5Up;
 
 PImage laserBeamUp;
 PImage laserBeam;
@@ -78,15 +86,30 @@ void setup() {
   startTime = millis(); // start timer
   obstacleTime  = millis(); // starter timingen for obstacles
   player = loadImage("spaceship.png");
-  laser0Left = loadImage("Laser0Left.png");
+  
   laser0Right = loadImage("Laser0Right.png");
   laser0Up = loadImage("Laser0Up.png");
-  laser1Left = loadImage("Laser1Left.png");
+  
   laser1Right = loadImage("Laser1Right.png");
   laser1Up = loadImage("Laser1Up.png");
-  laser2Left = loadImage("Laser2Left.png");
+  
   laser2Right = loadImage("Laser2Right.png");
   laser2Up = loadImage("Laser2Up.png");
+  
+  laser3Right = loadImage("Laser3Right.png");
+  laser3Up = loadImage("Laser3Up.png");
+  
+  laser4Right = loadImage("Laser4Right.png");
+  laser4Up = loadImage("Laser4Up.png");
+  
+  laser5Right = loadImage("Laser5Right.png");
+  laser5Up = loadImage("Laser5Up.png");
+  
+  
+  
+  
+  
+  
   laserBeamUp = loadImage("LaserBeamUp.png");
   laserBeam = loadImage("LaserBeam.png");
   for (float o = 0; o<8; o++) { // for loop makes lasers
@@ -132,7 +155,7 @@ void draw() {
     grid(100, 100, 580, 100, 100, 100, 100, 580); // funktion for making the grid
     up = false; // makes lasers face sideways
     for (laser b : LaserList) { // for loop goes thru the first row of lasers
-      b.drawLaser(posx, posy, chance, laser0Right, laser1Right, laser2Right, up, laserBeam, chargeTime); // draws the lasers to the screen
+      b.drawLaser(posx, posy, chance, laser0Right, laser1Right, laser2Right, laser3Right, laser4Right, laser5Right, up, laserBeam, chargeTime); // draws the lasers to the screen
       posy = posy + 60; // plus 60 after drawing each laser
     }
 
@@ -140,7 +163,7 @@ void draw() {
     posy = 620; // pos y for the first bottom laser
     up = true; // lasers faces up true
     for (laser c : LaserList2) {
-      c.drawLaser(posx, posy, chance, laser0Up, laser1Up, laser2Up, up, laserBeamUp, chargeTime); // tegner laserne
+      c.drawLaser(posx, posy, chance, laser0Up, laser1Up, laser2Up, laser3Up, laser4Up, laser5Up,  up, laserBeamUp, chargeTime); // tegner laserne
       posx = posx + 60;
     }
     a.drawPlayer(player); // draws player

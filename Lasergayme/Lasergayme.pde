@@ -160,43 +160,7 @@ void draw() {
       posx = posx + 60;
     }
     a.drawPlayer(player); // draws player
-    // text(mouseX + " " + mouseY, mouseX, mouseY);
-    if (obstacle == true) { // if above level 3
-      rectMode(CENTER);
-      int currentTimer = millis() - obstacleTime;
-      if (currentTimer >= 10000) { // if the level has been going on for 10 seconds
-        obstacleTime = millis(); // reset timer
-        int randomX = int(random(0, 8)); // gets a random number from 0 to 8
-        int randomY = int(random(0, 8));
-        println((a.x1 -130) / 60);
-        println((a.y1 -130) / 60);
-        if ((a.x1 -130) / 60 == randomX) { // checks if x cordinate of player and box is the same
-          if (randomX == 7) { // checks if the box should be moved left
-            randomX--; // moves the box left
-          } else if (randomX == 0) { // checks if the box should be moved right
-            randomX++; // moves the box right
-          } else {
-            randomX++;
-          }
-        } else if ((a.y1 -130) / 60 == randomY) { // checks if y cordinate of player and box is the same
-          if (randomY == 7) { // checks if the box should be moved up
-            randomY--; // moves box up
-          } else if (randomY == 0) { // checks if box should be moved down
-            randomY++; // moves box down
-          } else {
-            randomY++;
-          }
-        }
-        int obstacleX = randomX * 60 + 130; // translated the boxes cordinate fro 0-8 to the grid
-        int obstacleY = randomY * 60 + 130; // translated the boxes cordinate fro 0-8 to the grid
-        ob = new obstacle(obstacleX, obstacleY); // adds the box
-        ObstacleList.add(ob);
-      }
-
-      for (obstacle ob : ObstacleList) { // renders all the boxes
-        ob.render();
-      }
-    }
+    newObstacle();
   }
 }
 
@@ -231,6 +195,45 @@ void reset() {
   for (float o = 0; o<8; o++) { // for loop det tegner de lasere i bunden
     laser c = new laser(); // laver 8 lasere
     LaserList2.add(c); // tilføjer dem til arraylisten
+  }
+}
+
+void newObstacle(){
+  if (obstacle == true) { // if above level 3
+      rectMode(CENTER);
+      int currentTimer = millis() - obstacleTime;
+      if (currentTimer >= 10000) { // if the level has been going on for 10 seconds
+        obstacleTime = millis(); // reset timer
+        int randomX = int(random(0, 8)); // gets a random number from 0 to 8
+        int randomY = int(random(0, 8));
+        println((a.x1 -130) / 60);
+        println((a.y1 -130) / 60);
+        if ((a.x1 -130) / 60 == randomX) { // checks if x cordinate of player and box is the same
+          if (randomX == 7) { // checks if the box should be moved left
+            randomX--; // moves the box left
+          } else if (randomX == 0) { // checks if the box should be moved right
+            randomX++; // moves the box right
+          } else {
+            randomX++;
+          }
+        } else if ((a.y1 -130) / 60 == randomY) { // checks if y cordinate of player and box is the same
+          if (randomY == 7) { // checks if the box should be moved up
+            randomY--; // moves box up
+          } else if (randomY == 0) { // checks if box should be moved down
+            randomY++; // moves box down
+          } else {
+            randomY++;
+          }
+        }
+        int obstacleX = randomX * 60 + 130; // translated the boxes cordinate fro 0-8 to the grid
+        int obstacleY = randomY * 60 + 130; // translated the boxes cordinate fro 0-8 to the grid
+        ob = new obstacle(obstacleX, obstacleY); // adds the box
+        ObstacleList.add(ob);
+      }
+
+      for (obstacle ob : ObstacleList) { // renders all the boxes
+        ob.render();
+    }
   }
 }
 
